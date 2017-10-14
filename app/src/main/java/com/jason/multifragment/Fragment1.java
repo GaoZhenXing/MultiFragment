@@ -38,6 +38,8 @@ public class Fragment1 extends BaseFragment {
             public void onClick(View view) {
                 FunctionsManager.getInstance().invokeFunc(INTERFACE_NPNR);
                 FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,333);
+                FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,String.class);
+                FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,333,String.class);
             }
         });
     }

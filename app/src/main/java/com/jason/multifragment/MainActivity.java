@@ -95,32 +95,35 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void setFunctionForFragment() {
-        FunctionsManager.getInstance().addFunction(new FunctionNoParamNoResult(Fragment1.INTERFACE_NPNR) {
-            @Override
-            public void function() {
-                Toast.makeText(MainActivity.this, "成功调用无返回值 无参数的接口", Toast.LENGTH_LONG).show();
-            }
-        }).addFunction(new FunctionWithParamOnly<Integer>(Fragment1.INTERFACE_NP) {
+        FunctionsManager.getInstance()
+                .addFunction(new FunctionNoParamNoResult(Fragment1.INTERFACE_NPNR) {
+                    @Override
+                    public void function() {
+                        Toast.makeText(MainActivity.this, "成功调用无返回值 无参数的接口", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addFunction(new FunctionWithParamOnly<Integer>(Fragment1.INTERFACE_NP) {
 
-            @Override
-            public void function(Integer o) {
-                Toast.makeText(MainActivity.this, "参数:" + o, Toast.LENGTH_LONG).show();
+                    @Override
+                    public void function(Integer o) {
+                        Toast.makeText(MainActivity.this, "mainActivity接收到fragment1参数:" + o, Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addFunction(new FunctionWithResultOnly<String>(Fragment2.INTERFACE_RESULT_ONLY) {
 
-            }
-        }).addFunction(new FunctionWithResultOnly<String>(Fragment2.INTERFACE_RESULT_ONLY) {
-
-            @Override
-            public String function() {
-                return "I Love You";
-            }
-        }).addFunction(new FunctionWithParamAndResult<String, Integer>(Fragment3.INTERFACE_WITH_RESULT_PARAM) {
+                    @Override
+                    public String function() {
+                        return "Activity返回 I Love You";
+                    }
+                })
+                .addFunction(new FunctionWithParamAndResult<String, Integer>(Fragment3.INTERFACE_WITH_RESULT_PARAM) {
 
 
-            @Override
-            public String function(Integer integer) {
-                return integer + "fdaf ";
-            }
-        });
+                    @Override
+                    public String function(Integer integer) {
+                        return "Activity接收到参数:" + integer + ",返回 :fdaf ";
+                    }
+                });
 
 
     }

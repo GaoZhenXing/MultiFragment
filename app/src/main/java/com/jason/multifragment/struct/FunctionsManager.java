@@ -44,7 +44,6 @@ public class FunctionsManager {
         }
         if (mFunctionNoParanNoResult != null) {
             FunctionNoParamNoResult functionNoParamNoResult = mFunctionNoParanNoResult.get(funcName);
-
             if (null != functionNoParamNoResult) {
                 functionNoParamNoResult.function();
             } else {
