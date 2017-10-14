@@ -7,6 +7,9 @@ package com.jason.multifragment.struct;
 public abstract class Function {
     public String mfunctionName;
 
-    abstract void function();
+    public Function(String funcName) {
+        this.mfunctionName = funcName;
+    }
 
+//    public abstract void funcation();
 }

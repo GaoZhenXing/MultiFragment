@@ -6,8 +6,8 @@ import android.util.Log;
  * Created by Jason on 2017/10/13.
  */
 
-class FunctionException extends Throwable {
+class FunctionException extends Exception {
     public FunctionException(String s) {
-        Log.e("Error", s);
+        super(s);
     }
 }

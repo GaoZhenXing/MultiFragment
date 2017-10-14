@@ -7,12 +7,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.jason.multifragment.struct.FunctionsManager;
+
 /**
  * Created by Jason on 2017/10/12.
  */
 
-public class Fragment1 extends Fragment {
-
+public class Fragment1 extends BaseFragment {
+   public static  final String INTERFACE_NPNR=Fragment1.class.getName()+"NPNR";
+   public static  final String INTERFACE_NP=Fragment1.class.getName()+"NP";
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,7 +36,8 @@ public class Fragment1 extends Fragment {
         getView().findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                FunctionsManager.getInstance().invokeFunc(INTERFACE_NPNR);
+                FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,333);
             }
         });
     }

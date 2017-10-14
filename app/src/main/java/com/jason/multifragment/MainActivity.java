@@ -9,6 +9,13 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.jason.multifragment.struct.FunctionNoParamNoResult;
+import com.jason.multifragment.struct.FunctionWithParamAndResult;
+import com.jason.multifragment.struct.FunctionWithParamOnly;
+import com.jason.multifragment.struct.FunctionWithResultOnly;
+import com.jason.multifragment.struct.FunctionsManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -85,5 +92,36 @@ public class MainActivity extends AppCompatActivity {
             fragmentTransaction.show(fragment);
         }
         fragmentTransaction.commit();
+    }
+
+    public void setFunctionForFragment() {
+        FunctionsManager.getInstance().addFunction(new FunctionNoParamNoResult(Fragment1.INTERFACE_NPNR) {
+            @Override
+            public void function() {
+                Toast.makeText(MainActivity.this, "成功调用无返回值 无参数的接口", Toast.LENGTH_LONG).show();
+            }
+        }).addFunction(new FunctionWithParamOnly<Integer>(Fragment1.INTERFACE_NP) {
+
+            @Override
+            public void function(Integer o) {
+                Toast.makeText(MainActivity.this, "参数:" + o, Toast.LENGTH_LONG).show();
+
+            }
+        }).addFunction(new FunctionWithResultOnly<String>(Fragment2.INTERFACE_RESULT_ONLY) {
+
+            @Override
+            public String function() {
+                return "I Love You";
+            }
+        }).addFunction(new FunctionWithParamAndResult<String, Integer>(Fragment3.INTERFACE_WITH_RESULT_PARAM) {
+
+
+            @Override
+            public String function(Integer integer) {
+                return integer + "fdaf ";
+            }
+        });
+
+
     }
 }
