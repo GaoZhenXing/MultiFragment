@@ -107,9 +107,9 @@ public abstract class Function {
                 //携带参数
                 FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,333);
                 //有返回值 返回类型为 String
-                FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,String.class);
+                  String s=FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,String.class);
                 //有携带参数 有返回值 返回类型为String
-                FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,333,String.class);
+                  String s1=FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,333,String.class);
             }
         });
  ```
