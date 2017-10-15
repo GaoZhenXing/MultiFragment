@@ -36,9 +36,13 @@ public class Fragment1 extends BaseFragment {
         getView().findViewById(R.id.button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                //无参数 无返回值
                 FunctionsManager.getInstance().invokeFunc(INTERFACE_NPNR);
+                //携带参数
                 FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,333);
+                //有返回值 返回类型为 String
                 FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,String.class);
+                //有携带参数 有返回值 返回类型为String
                 FunctionsManager.getInstance().invokeFunc(INTERFACE_NP,333,String.class);
             }
         });
