@@ -96,12 +96,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void setFunctionForFragment() {
         FunctionsManager.getInstance()
+                //fragment1   实现方式 无参数 无返回值
                 .addFunction(new FunctionNoParamNoResult(Fragment1.INTERFACE_NPNR) {
                     @Override
                     public void function() {
                         Toast.makeText(MainActivity.this, "成功调用无返回值 无参数的接口", Toast.LENGTH_LONG).show();
                     }
                 })
+                //fragment1   实现  有参数  回调
                 .addFunction(new FunctionWithParamOnly<Integer>(Fragment1.INTERFACE_NP) {
 
                     @Override
@@ -109,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "mainActivity接收到fragment1参数:" + o, Toast.LENGTH_LONG).show();
                     }
                 })
+                //fragment2 只有返回值 实现方式
                 .addFunction(new FunctionWithResultOnly<String>(Fragment2.INTERFACE_RESULT_ONLY) {
 
                     @Override
@@ -116,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
                         return "Activity返回 I Love You";
                     }
                 })
+                //fragment2   实现  有参数 有返回值 回调
                 .addFunction(new FunctionWithParamAndResult<String, Integer>(Fragment3.INTERFACE_WITH_RESULT_PARAM) {
 
 
@@ -124,7 +128,6 @@ public class MainActivity extends AppCompatActivity {
                         return "Activity接收到参数:" + integer + ",返回 :fdaf ";
                     }
                 });
-
 
     }
 }

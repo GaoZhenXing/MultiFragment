@@ -8,9 +8,6 @@ public abstract class FunctionNoParamNoResult extends Function {
     public FunctionNoParamNoResult(String funcName) {
         super(funcName);
     }
-//    public FunctionNoParamNoResult(String funcName) {
-//        super(funcName);
-//    }
 
     public abstract void function();
 }

@@ -6,7 +6,8 @@ package com.jason.multifragment.struct;
 
 public abstract class FunctionWithResultOnly<Result> extends Function {
 
-    public FunctionWithResultOnly(String funcName) {
+
+    public FunctionWithResultOnly(String funcName ) {
         super(funcName);
     }
 

@@ -1,6 +1,7 @@
 package com.jason.multifragment.struct;
 
 import android.text.TextUtils;
+import android.util.Log;
 
 import java.util.HashMap;
 
@@ -34,6 +35,7 @@ public class FunctionsManager {
     //添加没有参数没有返回值的
     public FunctionsManager addFunction(FunctionNoParamNoResult function) {
         mFunctionNoParanNoResult.put(function.mfunctionName, function);
+        Log.d(FunctionsManager.class.getSimpleName(),function.mfunctionName+"添加到队列里");
         return this;
     }
 
@@ -48,7 +50,7 @@ public class FunctionsManager {
                 functionNoParamNoResult.function();
             } else {
                 try {
-                    throw new FunctionException("Has no this function:" + funcName);
+                    throw new FunctionException("FunctionNoParamNoResult no this function:" + funcName);
                 } catch (FunctionException e) {
                     e.printStackTrace();
                 }
@@ -58,6 +60,7 @@ public class FunctionsManager {
 
     public FunctionsManager addFunction(FunctionWithResultOnly function) {
         mFunctionWithResultOnly.put(function.mfunctionName, function);
+        Log.d(FunctionsManager.class.getSimpleName(),function.mfunctionName+"添加到队列里");
         return this;
     }
 
@@ -78,7 +81,7 @@ public class FunctionsManager {
 
             } else {
                 try {
-                    throw new FunctionException("Has no this function:" + funcName);
+                    throw new FunctionException("FunctionWithResultOnly  no this function:" + funcName);
                 } catch (FunctionException e) {
                     e.printStackTrace();
                 }
@@ -91,6 +94,7 @@ public class FunctionsManager {
 
     public FunctionsManager addFunction(FunctionWithParamOnly function) {
         mFunctionWithParamOnly.put(function.mfunctionName, function);
+        Log.d(FunctionsManager.class.getSimpleName(),function.mfunctionName+"添加到队列里");
         return this;
     }
 
@@ -107,7 +111,7 @@ public class FunctionsManager {
 
             } else {
                 try {
-                    throw new FunctionException("Has no this function:" + funcName);
+                    throw new FunctionException("FunctionWithParamOnly no this function:" + funcName);
                 } catch (FunctionException e) {
                     e.printStackTrace();
                 }
@@ -118,6 +122,7 @@ public class FunctionsManager {
 
     public FunctionsManager addFunction(FunctionWithParamAndResult function) {
         mFunctionWithParamAndResult.put(function.mfunctionName, function);
+        Log.d(FunctionsManager.class.getSimpleName(),function.mfunctionName+"添加到队列里");
         return this;
     }
 
@@ -136,7 +141,7 @@ public class FunctionsManager {
                 }
             } else {
                 try {
-                    throw new FunctionException("Has no this function:" + funcName);
+                    throw new FunctionException("FunctionWithParamAndResult no this function:" + funcName);
                 } catch (FunctionException e) {
                     e.printStackTrace();
                 }
