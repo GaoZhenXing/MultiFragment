@@ -15,13 +15,15 @@ Fragment 通讯原则:
    
    通过接口实现fragment   自定义架构  
    
-   先对方法进行抽线
+   先对方法进行抽象
  
    `
 public abstract class Function {
     public String mfunctionName;
+
     public Function(String funcName) {
         this.mfunctionName = funcName;
     }
-    //    public abstract void funcation();
+
+//    public abstract void funcation();
 }`
